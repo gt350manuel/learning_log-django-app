@@ -1,0 +1,19 @@
+{% extends "blog_pa/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h3> Agrega un nuevo tema </h3>
+{% endblock page_header %}
+
+{% block content %}
+
+ <form method='post' action="{% url 'blog_pa:new_topic' %}" class="form">
+   {% csrf_token %}
+   {% bootstrap_form form %}
+   
+   {% buttons %}
+     <button name="submit" class="btn btn-primary"> Agregar tema </button>
+   {% endbuttons %}
+   
+ </form>
+{% endblock content %}

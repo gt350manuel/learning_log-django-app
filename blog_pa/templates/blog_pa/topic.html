@@ -1,0 +1,27 @@
+{% extends 'blog_pa/base.html' %}
+
+{% block page_header %}
+  <h3> {{ topic }} </h3>
+{% endblock page_header %}
+
+{% block content %}
+  <h5>
+  <a href="{% url 'blog_pa:new_entry' topic.id %}"> Agregar Entrada </a>
+  </h5>
+ 
+  {% for entry in entries %}
+    <div class="card mb-3">
+	  <h4 class="card-header">
+	    {{ entry.date_added|date:'M d, Y H:i' }}
+	    <small><a href="{% url 'blog_pa:edit_entry' entry.id %}"> Editar entrada </a></small></h4>
+	
+	  <div class="card-body">
+      {{ entry.text|linebreaks }}
+      </div>
+    </div>
+      
+  {% empty %}
+    <p> No hay entradas para este tema aún </p>
+  {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "blog_pa/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h3><a href="{% url 'blog_pa:topic' topic.id %}"> {{ topic }}</a></h3>
+{% endblock page_header %}
+
+{% block content %}
+
+  <h4> Agrega una nueva entrada: </h4>
+  
+  <form method='post' action="{% url 'blog_pa:new_entry' topic.id %}" class="form">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	
+	{% buttons %}
+	  <button name="submit" class="btn btn-primary"> Agregar entrada </button>
+	{% endbuttons %}
+
+  </form>
+  
+{% endblock content %}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

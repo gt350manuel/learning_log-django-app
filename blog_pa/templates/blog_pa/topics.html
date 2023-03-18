@@ -1,0 +1,24 @@
+{% extends "blog_pa/base.html" %}
+
+{% block page_header %}
+  <h1> Topics </h1>
+{% endblock page_header %}
+
+{% block content %}
+ 
+
+ 
+ <ul>
+  {% for topic in topics %}
+   <li><h4>
+    <a href="{% url 'blog_pa:topic' topic.id %}"> {{ topic }}</a>
+   </h4></li>
+   
+  {% empty %}
+   <li></h3>No se ha agregado ningún tema aún. </h3></li>
+  {% endfor %}
+ </ul>
+ 
+ </h3><a href= "{% url 'blog_pa:new_topic' %}"> Agregar un nuevo tema </h3></a>
+  
+{% endblock content %}
